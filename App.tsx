@@ -3,32 +3,9 @@ import {
   View,
   StyleSheet,
   Text,
-  ViewStyle,
-  StyleProp,
-  TextStyle
 } from 'react-native';
 
-type BottonProbs = {
-  viewStyle: StyleProp<ViewStyle>,
-  textStyle: StyleProp<TextStyle>,
-  textValue: string,
-}
-
-const Botton = ({
-  viewStyle,
-  textStyle,
-  textValue,
-}: {
-  viewStyle: StyleProp<ViewStyle>,
-  textStyle: StyleProp<TextStyle>,
-  textValue: string,
-}): JSX.Element => {
-  return (
-    <View style={viewStyle}>
-      <Text style={textStyle}> {textValue} </Text>
-    </View>
-  )
-}
+import Button from './src/components/Button'
 
 const App = () => {
 
@@ -40,7 +17,12 @@ const App = () => {
       <View style={styles.box2} >
         {
           ['AC', '+/-', '%'].map(
-            item => <Botton viewStyle={styles.gray} textStyle={styles.text1} textValue={item} />
+            (item, index) => <Button
+              key={'' + index}
+              viewStyle={styles.gray}
+              textStyle={styles.text1}
+              textValue={item}
+              onPress={() => console.log({ item })} />
           )
         }
         <View style={styles.box4}>
@@ -51,7 +33,12 @@ const App = () => {
       <View style={styles.box2} >
         {
           ['7', '8', '9'].map(
-            item => <Botton viewStyle={styles.darkGray} textStyle={styles.text1} textValue={item} />
+            (item, index) => <Button
+              key={'' + index}
+              viewStyle={styles.darkGray}
+              textStyle={styles.text1}
+              textValue={item}
+              onPress={() => console.log({ item })} />
           )
         }
         <View style={styles.box4}>
@@ -62,7 +49,13 @@ const App = () => {
       <View style={styles.box2} >
         {
           ['4', '5', '6'].map(
-            item => <Botton viewStyle = {styles.darkGray} textStyle = {styles.text1} textValue = {item} />
+            (item, index) => <Button
+              key={'' + index}
+              viewStyle={styles.darkGray}
+              textStyle={styles.text1}
+              textValue={item}
+              onPress={() => console.log({ item })}
+            />
           )
         }
         <View style={styles.box4}>
@@ -73,7 +66,12 @@ const App = () => {
       <View style={styles.box2} >
         {
           ['1', '2', '3'].map(
-            item => <Botton viewStyle = {styles.darkGray} textStyle = {styles.text1} textValue = {item} />
+            (item, index) => <Button
+              key={'' + index}
+              viewStyle={styles.darkGray}
+              textStyle={styles.text1}
+              textValue={item}
+              onPress={() => console.log(item)} />
           )
         }
         <View style={styles.box4}>
@@ -146,8 +144,8 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    margin:1,
-    
+    margin: 1,
+
   },
   text1: {
     color: 'white',
