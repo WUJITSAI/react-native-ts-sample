@@ -1,5 +1,34 @@
 import React from 'react';
-import { View, StyleSheet, Text,PixelRatio } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  ViewStyle,
+  StyleProp,
+  TextStyle
+} from 'react-native';
+
+type BottonProbs = {
+  viewStyle: StyleProp<ViewStyle>,
+  textStyle: StyleProp<TextStyle>,
+  textValue: string,
+}
+
+const Botton = ({
+  viewStyle,
+  textStyle,
+  textValue,
+}: {
+  viewStyle: StyleProp<ViewStyle>,
+  textStyle: StyleProp<TextStyle>,
+  textValue: string,
+}): JSX.Element => {
+  return (
+    <View style={viewStyle}>
+      <Text style={textStyle}> {textValue} </Text>
+    </View>
+  )
+}
 
 const App = () => {
 
@@ -9,53 +38,44 @@ const App = () => {
 
       <View style={styles.box1} />
       <View style={styles.box2} >
-        <View style={styles.gray}>
-          <Text style={styles.text1}> AC </Text></View>
-        <View style={styles.gray}>
-          <Text style={styles.text1}> +/- </Text></View>
-        <View style={styles.gray}>
-          <Text style={styles.text1}> % </Text></View>
+        {
+          ['AC', '+/-', '%'].map(
+            item => <Botton viewStyle={styles.gray} textStyle={styles.text1} textValue={item} />
+          )
+        }
         <View style={styles.box4}>
-          <Text style={styles.text1}> 除 </Text></View>
+          <Text style={styles.text1}> 除 </Text>
+        </View>
       </View>
-      <View style={styles.box3} >
-        <View style={styles.darkGray}>
-          <Text style={styles.text1}> 7 </Text>
-        </View>
-        <View style={styles.darkGray}>
-          <Text style={styles.text1}> 8 </Text>
-        </View>
-        <View style={styles.darkGray}>
-          <Text style={styles.text1}> 9 </Text>
-        </View>
+
+      <View style={styles.box2} >
+        {
+          ['7', '8', '9'].map(
+            item => <Botton viewStyle={styles.darkGray} textStyle={styles.text1} textValue={item} />
+          )
+        }
         <View style={styles.box4}>
           <Text style={styles.text1}> X </Text>
         </View>
       </View>
+
       <View style={styles.box2} >
-        <View style={styles.darkGray}>
-          <Text style={styles.text1}> 4 </Text>
-        </View>
-        <View style={styles.darkGray}>
-          <Text style={styles.text1}> 5 </Text>
-        </View>
-        <View style={styles.darkGray}>
-          <Text style={styles.text1}> 6 </Text>
-        </View>
+        {
+          ['4', '5', '6'].map(
+            item => <Botton viewStyle = {styles.darkGray} textStyle = {styles.text1} textValue = {item} />
+          )
+        }
         <View style={styles.box4}>
           <Text style={styles.text1}> + </Text>
         </View>
       </View>
-      <View style={styles.box3} >
-        <View style={styles.darkGray}>
-          <Text style={styles.text1}> 1 </Text>
-        </View>
-        <View style={styles.darkGray}>
-          <Text style={styles.text1}> 2 </Text>
-        </View>
-        <View style={styles.darkGray}>
-          <Text style={styles.text1}> 3 </Text>
-        </View>
+
+      <View style={styles.box2} >
+        {
+          ['1', '2', '3'].map(
+            item => <Botton viewStyle = {styles.darkGray} textStyle = {styles.text1} textValue = {item} />
+          )
+        }
         <View style={styles.box4}>
           <Text style={styles.text1}> - </Text>
         </View>
@@ -93,25 +113,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 1,
     flexDirection: 'row',
-    
-  },
-  box3: {
-    backgroundColor: 'yellow',
-    flex: 1,
-    //alignItems:'center',
-    flexDirection: 'row',
+
   },
   box4: {
     backgroundColor: 'orange',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    margin: 1,
   },
   darkGray: {
     backgroundColor: 'darkgray',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    margin: 1,
     //borderColor:'black',
     //borderStyle:'solid',
   },
@@ -120,8 +136,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor:'white',
-    margin:1,
+    borderColor: 'white',
+    margin: 1,
     //borderLeftWidth:1/PixelRatio.get(),
     //borderLeftColor:1/PixelRatio.get(),
   },
@@ -130,6 +146,8 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
+    margin:1,
+    
   },
   text1: {
     color: 'white',
