@@ -18,10 +18,11 @@ const Tab = createBottomTabNavigator()
 const MainTab = () => {
   return (
     <Tab.Navigator >
+      <Stack.Screen name="GREEN" component={GreenPage} />
       <Tab.Screen name={'Cal'} component={Calculator} />
       <Tab.Screen name="Blue" component={BluePage} />
       
-      <Stack.Screen name="share" component={SharePage} />
+      
     </Tab.Navigator>
   )
 }
@@ -32,7 +33,7 @@ export default () => {
       <Stack.Navigator>
         <Stack.Screen name="Main" component={MainTab} />
         <Stack.Screen name="YELLOW" component={YellowPage} />
-        <Stack.Screen name="GREEN" component={GreenPage} />
+        <Stack.Screen name="share" component={SharePage} />
         <Stack.Screen name="RED" component={RedPage} />
       </Stack.Navigator>
       
