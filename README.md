@@ -1,5 +1,7 @@
 # React native 
 
+This projects is for react-native-ts practice
+
 ## View Styles
 
 - backgroundColor : 'red',  背景色
