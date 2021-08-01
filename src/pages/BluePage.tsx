@@ -1,6 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, 
+        StyleSheet,   
+        Text, 
+        FlatList, 
+        TouchableOpacity,
+        Alert} from 'react-native';
 import { useNavigation } from '@react-navigation/native'
+import { Value } from 'react-native-reanimated';
 
 
 export default () => {
@@ -11,15 +17,18 @@ export default () => {
     }])
 
     const onAddPress = () => {
-        console.log('aaaa');
-        
-        data.push({
-            age: 30,
-            name: 'KK',
-        })
-        setData([...data])
+        setVisable(!visable)
     }
+    const [visable, setVisable] = React.useState(true);
+    React.useEffect(() => {
+        if(!visable) Alert.alert('測試123');
+        
+    }, [visable])
 
+    React.useEffect(() => {
+        console.log('first times');
+        
+    }, [])
     const renderMyItem = ({ name }: { name: string, age: number }) => {
         return (
             <View style={{ backgroundColor: 'red' }}>
@@ -31,9 +40,12 @@ export default () => {
 
     return (
         <View style={styles.container} >
-            <FlatList 
-            data={data} 
-            renderItem={(item) => renderMyItem(item.item)} />
+            {
+                (visable) ?<FlatList 
+                data={data} 
+                renderItem={(item) => renderMyItem(item.item)} /> : null
+            }
+            
             
             <TouchableOpacity style={styles.touchableOpacityPorsition} onPress={onAddPress} >
                 <View style={styles.touchableOpacityView} />

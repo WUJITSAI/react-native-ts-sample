@@ -18,8 +18,8 @@ const Tab = createBottomTabNavigator()
 const MainTab = () => {
   return (
     <Tab.Navigator >
-      <Tab.Screen name="Blue" component={BluePage} />
       <Tab.Screen name={'Cal'} component={Calculator} />
+      <Tab.Screen name="Blue" component={BluePage} />
       
       <Stack.Screen name="share" component={SharePage} />
     </Tab.Navigator>
