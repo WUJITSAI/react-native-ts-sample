@@ -1,5 +1,7 @@
 # React native 
 
+This project is for react-native typescript pratice.
+
 ## View Styles
 
 - backgroundColor : 'red',  背景色
