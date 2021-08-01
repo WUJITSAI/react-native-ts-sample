@@ -15,7 +15,7 @@ This projects is for react-native-ts practice
 - flexDirection:  排列方向
 - justifyContent: 與主類別方向調整
 - alignItems: 與主類別反方向調整
-
+- useState: 回傳 data 給呼叫此 function 的方法
 
 ## Issues
 
