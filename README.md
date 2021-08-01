@@ -15,3 +15,14 @@ This projects is for react-native-ts practice
 - flexDirection:  排列方向
 - justifyContent: 與主類別方向調整
 - alignItems: 與主類別反方向調整
+
+
+## Issues
+
+- [iOS Build Error with react-native version - 0.64.0](https://github.com/facebook/react-native/issues/31259)
+
+  Solved: I'm using NVM and had the same issue for now I changed the file node_modules/react-native/scripts/find-node.sh adding before set -e:
+
+   
+    unset npm_config_prefix
+    unset PREFIX
