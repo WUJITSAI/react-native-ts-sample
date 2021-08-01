@@ -57,7 +57,7 @@ export default () => {
             }
         }
         catch (error){
-            Alert.alert(error);
+            Alert.alert(error.toString());
             setLoading(false);
         }
     }

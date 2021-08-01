@@ -2,6 +2,20 @@
 
 This projects is for react-native-ts practice
 
+## 
+
+1. Start VSCode with project
+2. open ios
+4. npm i (install moudle)
+5. cd ios && pod install 
+4. npm run server
+3. Start <project name>.xcworkspace
+6. npm run start
+7. adb devices (Check connected devcie)
+8. npm run android
+
+
+
 ## View Styles
 
 - backgroundColor : 'red',  背景色
