@@ -31,9 +31,10 @@ export default () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="share" component={SharePage} />
         <Stack.Screen name="Main" component={MainTab} />
         <Stack.Screen name="YELLOW" component={YellowPage} />
-        <Stack.Screen name="share" component={SharePage} />
+        
         <Stack.Screen name="RED" component={RedPage} />
       </Stack.Navigator>
       

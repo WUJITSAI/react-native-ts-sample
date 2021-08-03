@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, Button, StyleSheet, Platform} from 'react-native';
 import { useNavigation } from '@react-navigation/native'
-import Share, {Options} from 'react-native-share';
+import Share, {Options} from 'react-native-share'
+import images from '../images/imagesBase64'
 
 const getOptions = (): Options => {
     const url = 'https://awesome.contents.com/';
@@ -61,10 +62,29 @@ const getOptions = (): Options => {
     }); 
 }
 
-const onSharePress = async () => {
-    
+const shareMultipleImages = async () => {
+    const shareOptions = {
+      title: 'Share file',
+      failOnCancel: false,
+      urls: [images.image1, images.image2],
+      message: `HELLO this is test: https://www.ariontechs.com`,
+    };
 
-    await Share.open(getOptions());
+    // If you want, you can use a try catch, to parse
+    // the share response. If the user cancels, etc.
+    try {
+      const ShareResponse = await Share.open(shareOptions);
+      console.log(ShareResponse);
+      
+    } catch (error) {
+      console.log('Error =>', error);
+    }
+  };
+
+const onSharePress = () => {
+    
+    shareMultipleImages()
+    
 }
 
 
